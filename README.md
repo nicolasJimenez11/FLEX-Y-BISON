@@ -87,7 +87,16 @@ Flex no es la mejor opción para lenguajes donde el análisis léxico depende fu
 
 PREGUNTA 6:
 
-### Exercise 6
-
 Se implementó una versión del programa Word Count directamente en C sin utilizar Flex. Aunque el resultado fue correcto, el código resultó más largo y menos flexible que la versión con Flex. Esto demuestra que Flex simplifica la creación de analizadores léxicos, facilitando el mantenimiento y la lectura del código.
+
+![Example6](imagenes/Ejemplo6.jpeg)
+
+**CONCLUSION**
+
+El desarrollo de los ejemplos del capítulo 1 permitió comprender el funcionamiento básico de las herramientas Flex y Bison para la construcción de analizadores léxicos y sintácticos. A través de la ejecución de cada programa se evidenció cómo Flex facilita el reconocimiento de patrones mediante expresiones regulares, mientras que Bison permite definir la estructura gramatical necesaria para interpretar correctamente las expresiones.
+
+Durante el proceso se observó que el uso de Flex reduce significativamente la complejidad del código en comparación con una implementación manual en lenguaje C, haciendo que el desarrollo sea más claro y fácil de mantener. La integración entre ambas herramientas permitió crear una calculadora funcional que respeta la precedencia de operadores, demostrando la importancia del análisis sintáctico.
+
+Finalmente, la comparación entre la versión automática y la implementación manual del conteo de palabras permitió concluir que, aunque el código en C ofrece mayor control, Flex resulta más práctico y eficiente para desarrollar analizadores en proyectos reales.
+
 
