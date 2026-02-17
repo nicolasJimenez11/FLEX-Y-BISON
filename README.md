@@ -29,3 +29,65 @@ Este ejemplo permite contar líneas, palabras y caracteres a partir de reglas de
 
 Ejemplo 1:
 
+Este ejemplo permite contar líneas, palabras y caracteres a partir de reglas definidas mediante expresiones regulares. El resultado mostrado corresponde al número total de coincidencias encontradas durante el análisis del texto ingresado. Se evidencia cómo Flex puede procesar cadenas de entrada de forma automática y eficiente sin necesidad de implementar manualmente el análisis carácter por carácter.
+
+![Example1](imagenes/Ejemplo1.jpeg)
+
+Ejemplo 2:
+
+En este ejemplo se realiza una sustitución directa de palabras específicas mediante patrones definidos en Flex. Al ingresar palabras como *colour* o *flavour*, el programa imprime su equivalente en inglés americano. El resultado demuestra cómo Flex puede utilizarse para transformar texto de manera sencilla, reemplazando únicamente los patrones definidos y dejando intacto el resto del contenido.
+
+![Example2](imagenes/Ejemplo2.jpeg)
+
+Ejemplo 3:
+
+El programa reconoce operadores aritméticos y números, mostrando mensajes que indican qué token fue detectado. El resultado obtenido al ejecutar expresiones como `2+3*4` muestra cada símbolo identificado por separado, evidenciando el proceso de análisis léxico antes de realizar cualquier cálculo.
+
+![Example3](imagenes/Ejemplo3.jpeg)
+
+![Example3-2](imagenes/Ejemplo3-2.jpeg)
+
+Ejemplo 4:
+
+Este ejemplo amplía el anterior al asignar valores numéricos a cada token y mostrarlos en pantalla. Los resultados permiten observar cómo Flex no solo reconoce patrones, sino que también puede devolver códigos específicos que posteriormente serán utilizados por un parser. La aparición de mensajes como *Mystery character* confirma el manejo de caracteres no definidos dentro del scanner.
+
+![Example4](imagenes/Ejemplo4.jpeg)
+
+Ejemplo 5:
+
+En este caso se integra Flex con Bison para crear una calculadora funcional capaz de evaluar expresiones matemáticas respetando la precedencia de operadores. Los resultados obtenidos, como `= 18` al ingresar `6+6*2`, demuestran el funcionamiento del análisis sintáctico y la correcta interpretación de la gramática definida.
+
+![Example5](imagenes/Ejemplo5.jpeg)
+
+**SOLUCION PREGUNTAS CAPITULO 1**
+
+PREGUNTA 1:
+
+La calculadora no acepta una línea que contenga solo un comentario si el parser no define reglas para líneas vacías. Esto ocurre porque el parser espera recibir tokens válidos y un comentario puede ser ignorado completamente por el scanner. La solución más sencilla sería manejar los comentarios en el scanner (Flex), permitiendo que estos se ignoren sin afectar la estructura sintáctica.
+
+PREGUNTA 2:
+
+Para permitir números hexadecimales se debe agregar un nuevo patrón en el scanner, por ejemplo:
+
+0[xX][0-9a-fA-F]+
+
+Luego, el valor puede convertirse usando la función `strtol`, almacenándolo en `yylval` antes de retornar el token NUMBER. Esto permite que la calculadora reconozca tanto números decimales como hexadecimales.
+
+PREGUNTA 3:
+
+Agregar operadores AND y OR puede generar conflictos si se utiliza el símbolo `|`, ya que en la gramática actual este representa el operador ABS. Si se usa también como OR binario, el parser puede volverse ambiguo y producir conflictos shift/reduce. Por esta razón es recomendable definir un token diferente o modificar la gramática para evitar ambigüedad.
+
+PREGUNTA 4:
+
+El scanner escrito manualmente no reconoce exactamente los mismos tokens que la versión generada con Flex. Flex utiliza expresiones regulares más robustas y maneja automáticamente múltiples coincidencias, mientras que el scanner manual depende de condiciones programadas directamente en C, lo que puede limitar su precisión.
+
+PREGUNTA 5:
+
+Flex no es la mejor opción para lenguajes donde el análisis léxico depende fuertemente del contexto, como aquellos con indentación significativa o reglas complejas que no pueden describirse fácilmente con expresiones regulares. En estos casos, un scanner manual puede ofrecer mayor control sobre el análisis.
+
+PREGUNTA 6:
+
+### Exercise 6
+
+Se implementó una versión del programa Word Count directamente en C sin utilizar Flex. Aunque el resultado fue correcto, el código resultó más largo y menos flexible que la versión con Flex. Esto demuestra que Flex simplifica la creación de analizadores léxicos, facilitando el mantenimiento y la lectura del código.
+
