@@ -25,7 +25,14 @@ gcc --version
 **COMO EJECUTARLO**
 
 1.gcc lex.yy.c -lfl -o (Nombre del programa)
+
 2.  ./programa
+
+flex genera el archivo lex.yy.c
+
+bision -d genera archivo.tab.c
+
+gcc compila los arhivos y crea el ejecutable
 
 **EJECUCION DE LOS 5 EJEMPLOS DEL LIBRO**
 
