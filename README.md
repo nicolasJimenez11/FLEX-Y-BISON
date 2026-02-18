@@ -34,6 +34,17 @@ bision -d genera archivo.tab.c
 
 gcc compila los arhivos y crea el ejecutable
 
+**EJECUCION CALCULADORA**
+
+1.bison -d archivo.y
+
+2.flex archivo.l
+
+3. gcc -o programa archivo.tab.c lex.yy.c -lfl
+
+4. ./programa
+
+
 **EJECUCION DE LOS 5 EJEMPLOS DEL LIBRO**
 
 Este ejemplo permite contar líneas, palabras y caracteres a partir de reglas definidas mediante expresiones regulares. El resultado mostrado corresponde al número total de coincidencias encontradas durante el análisis del texto ingresado. Se evidencia cómo Flex puede procesar cadenas de entrada de forma automática y eficiente sin necesidad de implementar manualmente el análisis carácter por carácter.
