@@ -22,6 +22,11 @@ bison --version
 
 gcc --version
 
+**COMO EJECUTARLO**
+
+1.gcc lex.yy.c -lfl -o (Nombre del programa)
+2.  ./programa
+
 **EJECUCION DE LOS 5 EJEMPLOS DEL LIBRO**
 
 Este ejemplo permite contar líneas, palabras y caracteres a partir de reglas definidas mediante expresiones regulares. El resultado mostrado corresponde al número total de coincidencias encontradas durante el análisis del texto ingresado. Se evidencia cómo Flex puede procesar cadenas de entrada de forma automática y eficiente sin necesidad de implementar manualmente el análisis carácter por carácter.
